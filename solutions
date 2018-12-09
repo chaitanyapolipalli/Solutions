@@ -1,4 +1,18 @@
-How to Split a String at commas(,) but ignore commas inside double quotes(“,”)?
+How to Split a String at commas(,) but ignore commas inside double quotes(“,”) using rdd?
 
 https://stackoverflow.com/questions/44103241/how-to-split-a-string-at-commas-but-ignore-commas-inside-double-quotes
+
+val tit_rdd = td.map(td=>td.split(",(?=([^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)"))
+  .map(td=>tit(Try(td(0).replaceAll("\"","").toInt) getOrElse 0 ,
+  td(1).replaceAll("\"",""),
+  Try(td(2).toInt) getOrElse 0,
+  td(3).replaceAll("\"",""),
+  Try(td(4).toDouble) getOrElse 0.0,
+  td(5).replaceAll("\"",""),
+  td(6).replaceAll("\"",""),
+  td(7).replaceAll("\"",""),
+  td(8).replaceAll("\"",""),
+  Try(td(9).replaceAll("\"","").toInt) getOrElse 0,
+  td(10).replaceAll("\"","")))
+  
 
