@@ -15,4 +15,6 @@ val tit_rdd = td.map(td=>td.split(",(?=([^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)"))
   Try(td(9).replaceAll("\"","").toInt) getOrElse 0,
   td(10).replaceAll("\"","")))
   
+  How to read data from xml datasource?
+  https://github.com/databricks/spark-xml
 
